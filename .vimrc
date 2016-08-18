@@ -20,6 +20,12 @@ Plugin 'scrooloose/nerdtree' " fs explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin' " git status flags for nerd tree
 Plugin 'mileszs/ack.vim' " for searching
 Plugin 'tpope/vim-fugitive' " git plugin
+Plugin 'airblade/vim-gitgutter' " git diff in gutter (by line numbers)
+Plugin 'tpope/vim-surround' " surround characters
+Plugin 'jiangmiao/auto-pairs' " autoclose brackets and quotes
+Plugin 'ervandew/supertab' " autocomplete with tab
+Plugin 'chriskempson/base16-vim' " themes
+ 
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -67,11 +73,19 @@ set backspace=indent,eol,start " backspace over anything
 colorscheme onedark  " using a built in for now... TODO: change to onedark
 syntax enable " enable syntax processing
 
+" base16
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and spacing
 set tabstop=2 " number of visual spaces per TAB
 set softtabstop=2 " number of spaces when press <TAB> and number of spaces deleted when backspacing
 set expandtab " tabs are spaces
+set shiftwidth=2 " columns inserted for reindent operations (<< and >>)
+set autoindent " copy indentation from pervious line when starting a new line
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI config
@@ -147,6 +161,8 @@ autocmd vimenter * NERDTree " automatically open nerdtree on startup
 autocmd VimEnter * wincmd p " focus the file rather than nerdtree
 " close vim if just a nerdtree left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeShowHidden=1 " show hidden by default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
