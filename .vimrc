@@ -13,7 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My plugins
 Plugin 'vim-airline/vim-airline' " status bar
-Plugin 'bling/vim-bufferline' " buffer line
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 Plugin 'scrooloose/nerdcommenter' " comment lines easily
 Plugin 'scrooloose/nerdtree' " fs explorer
@@ -28,6 +27,9 @@ Plugin 'chriskempson/base16-vim' " themes
 Plugin 'gcmt/taboo.vim' " rename tabs
 Plugin 'sheerun/vim-polyglot' " better language specific syntax and indentation
 Plugin 'ciaranm/detectindent' " auto detect indentation 
+Plugin 'Yggdroot/indentLine' " visual indentation guides
+Plugin 'jeffkreeftmeijer/vim-numbertoggle' " auto-switch between relative and absolute line numbers
+Plugin 'flazz/vim-colorschemes'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -92,7 +94,7 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme onedark
+colorscheme gruvbox
 
 " base16
 
@@ -108,6 +110,10 @@ set softtabstop=2 " number of spaces when press <TAB> and number of spaces delet
 set expandtab " tabs are spaces
 set shiftwidth=2 " columns inserted for reindent operations (<< and >>)
 set autoindent " copy indentation from pervious line when starting a new line
+
+" IndentLine plugin config
+let g:indentLine_color_term=237
+let g:indentLine_char='|'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI config
@@ -176,17 +182,18 @@ nnoremap <leader>a :Ack
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
 let g:airline_powerline_fonts=1 " enable powerline symbols and glyphs
-let g:airline_theme='term'
+let g:airline_theme='base16'
 set laststatus=2 " otherwise vim-airline doesn't appear until new split
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 nnoremap <leader>\ :NERDTreeToggle<CR>
 
-autocmd vimenter * NERDTree " automatically open nerdtree on startup
+"autocmd vimenter * NERDTree " automatically open nerdtree on startup
 autocmd VimEnter * wincmd p " focus the file rather than nerdtree
 " close vim if just a nerdtree left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeShowHidden=1 " show hidden by default
 
