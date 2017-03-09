@@ -27,8 +27,6 @@ Plugin 'chriskempson/base16-vim' " themes
 Plugin 'gcmt/taboo.vim' " rename tabs
 Plugin 'sheerun/vim-polyglot' " better language specific syntax and indentation
 Plugin 'ciaranm/detectindent' " auto detect indentation 
-Plugin 'Yggdroot/indentLine' " visual indentation guides
-Plugin 'jeffkreeftmeijer/vim-numbertoggle' " auto-switch between relative and absolute line numbers
 Plugin 'flazz/vim-colorschemes'
 
 " The following are examples of different formats supported.
@@ -111,15 +109,13 @@ set expandtab " tabs are spaces
 set shiftwidth=2 " columns inserted for reindent operations (<< and >>)
 set autoindent " copy indentation from pervious line when starting a new line
 
-" IndentLine plugin config
-let g:indentLine_color_term=237
-let g:indentLine_char='|'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI config
 set number " show line numbers
 set showcmd " show last command entered in bottom left
 set cursorline " hightlight current line
+set relativenumber " relative line numbers
+set mouse=a " mouse controls
 
 filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
@@ -130,6 +126,7 @@ set showmatch " highlight matching [{()}]
 " Searching
 set incsearch " search as characters are entered
 set hlsearch " hightlight matches
+set ignorecase " case insensitive
 
 " to turn off search highlighting
 nnoremap <leader>y :nohlsearch<CR> 
@@ -200,9 +197,21 @@ let NERDTreeShowHidden=1 " show hidden by default
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
 noremap <leader>/ :call NERDComment(0,"toggle")<CR>
+let g:NERDSpaceDelims = 1 " add spaces after comment delimiters by default
+let g:NERDCompactSexyComs = 1 " use compact syntax for prettified multi-line comments
+let g:NERDDefaultAlign = 'left' " align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDCommentEmptyLines = 1 " allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDTrimTrailingWhitespace = 1 " enable trimming of trailing whitespace when uncommenting
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 set clipboard=unnamed " to yank to system clipboard
 set timeoutlen=1000 ttimeoutlen=0 " mode changes (pressing 'esc') update status immediately
 set shellpipe=> " so that ack.vim results don't show up in terminal after exiting vim
+
+" nice autocomplete in vim command line stuff
+set wildmenu
+set wildmode=list:longest,full
+
+inoremap jj <Esc>
