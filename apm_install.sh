@@ -2,6 +2,7 @@
 
 packages=(
 "advanced-open-file"
+"atom-material-ui"
 "ex-mode"
 "file-icons"
 "highlight-selected"
