@@ -92,7 +92,7 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme gruvbox
+colorscheme base16-gruvbox-dark-medium
 
 " base16
 
