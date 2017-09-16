@@ -28,6 +28,7 @@ Plugin 'gcmt/taboo.vim' " rename tabs
 Plugin 'sheerun/vim-polyglot' " better language specific syntax and indentation
 Plugin 'ciaranm/detectindent' " auto detect indentation 
 Plugin 'flazz/vim-colorschemes'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -92,7 +93,7 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme gruvbox
+colorscheme base16-gruvbox-dark-medium
 
 " base16
 
