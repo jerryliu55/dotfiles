@@ -6,7 +6,8 @@ export ZSH=/Users/jerry/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="bureau"
-ZSH_THEME="bira"
+ZSH_THEME="dpoggi-modified"
+# ZSH_THEME="bira"
 # ZSH_THEME="spaceship"
 # ZSH_THEME="robbyrussell" # default
 
@@ -63,6 +64,8 @@ source $ZSH/oh-my-zsh.sh
 SPACESHIP_RUBY_SHOW=false
 SPACESHIP_NVM_SHOW=false
 
+SOBOLE_THEME_MODE="dark"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -77,7 +80,8 @@ SPACESHIP_NVM_SHOW=false
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+ssh-add ~/.ssh/id_rsa
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -90,6 +94,7 @@ SPACESHIP_NVM_SHOW=false
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/scripts" # Add RVM to PATH for scripting
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # ocaml
 eval CAML_LD_LIBRARY_PATH="/Users/jerry/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"; export CAML_LD_LIBRARY_PATH;
@@ -115,13 +120,29 @@ fi
 
 # utility aliases
 alias c=clear
-alias std_env="ssh xq2liu@linux.student.cs.uwaterloo.ca"
 alias s=spotify
 alias f=fg
+alias git=hub
+
+# git
+alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"
 
 # Golang
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:/Users/jerry/protoc-3.5.1-osx-x86_64/bin
 
+# binds hex 0x18 0x7f with deleting everything to the left of the cursor
+bindkey "^X\\x7f" backward-kill-line
+
+# gnu utils
+PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
+
+# racket
+export PATH=$PATH:/Users/jerry/racket_v6_11/bin
+
+# macports
+export PATH=$PATH:/opt/local/bin

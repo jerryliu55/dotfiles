@@ -28,6 +28,11 @@ Plugin 'gcmt/taboo.vim' " rename tabs
 Plugin 'sheerun/vim-polyglot' " better language specific syntax and indentation
 Plugin 'ciaranm/detectindent' " auto detect indentation 
 Plugin 'flazz/vim-colorschemes'
+Plugin 'kien/ctrlp.vim'
+Plugin 'zenbro/mirror.vim' " easily edit remote files
+Plugin 'wlangstroth/vim-racket' " racket
+Plugin 'xuhdev/vim-latex-live-preview' " live preview latex files
+Plugin 'easymotion/vim-easymotion' " faster navigation
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -92,7 +97,7 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme base16-gruvbox-dark-medium
+colorscheme base16-materia
 
 " base16
 
@@ -171,7 +176,7 @@ nnoremap <leader>u :GundoToggle<CR>
 "nnoremap <leader>s :mksession<CR> " I don't have much use for this...
 
 " quickly ack
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack! 
 
 " TODO: install ag.vim
 " TODO: install ctrlp.vim
@@ -182,6 +187,11 @@ let g:airline_powerline_fonts=1 " enable powerline symbols and glyphs
 let g:airline_theme='base16'
 set laststatus=2 " otherwise vim-airline doesn't appear until new split
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
@@ -203,6 +213,25 @@ let g:NERDDefaultAlign = 'left' " align line-wise comment delimiters flush left 
 let g:NERDCommentEmptyLines = 1 " allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDTrimTrailingWhitespace = 1 " enable trimming of trailing whitespace when uncommenting
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] " ignore files under .git
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' " ag is faster than vim native glob
+endif
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " cache index
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mirrors
+
+nnoremap <leader>mpl :MirrorPull<CR><CR><CR>
+nnoremap <leader>mps :MirrorPush<CR><CR><CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" live latex preview
+
+autocmd Filetype tex setl updatetime=1 " update every second?
+let g:livepreview_previewer = 'open -a Preview'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
@@ -215,6 +244,8 @@ set wildmenu
 set wildmode=list:longest,full
 
 inoremap jj <Esc>
+
+set shortmess=a " short messages to avoid hit-enter prompts
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OCAML
