@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jerry/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +53,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -83,6 +83,9 @@ SOBOLE_THEME_MODE="dark"
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 ssh-add ~/.ssh/id_rsa
 
+# tmux
+export TERM=xterm-256color
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -97,18 +100,18 @@ export PATH="$PATH:$HOME/scripts" # Add RVM to PATH for scripting
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # ocaml
-eval CAML_LD_LIBRARY_PATH="/Users/jerry/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"; export CAML_LD_LIBRARY_PATH;
+eval CAML_LD_LIBRARY_PATH="$HOME/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"; export CAML_LD_LIBRARY_PATH;
 OPAMUTF8MSGS="1"; export OPAMUTF8MSGS;
-MANPATH="/Users/jerry/.opam/system/man:"; export MANPATH;
-PERL5LIB="/Users/jerry/.opam/system/lib/perl5"; export PERL5LIB;
-OCAML_TOPLEVEL_PATH="/Users/jerry/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
+MANPATH="$HOME/.opam/system/man:"; export MANPATH;
+PERL5LIB="$HOME/.opam/system/lib/perl5"; export PERL5LIB;
+OCAML_TOPLEVEL_PATH="$HOME/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
 
 # opam path
 export PATH="$PATH:$HOME/.opam/system/bin" # Add RVM to PATH for scripting
-# PATH="/Users/jerry/.opam/system/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/jerry/go/bin:/usr/local/opt/go/libexec/bin:/Users/jerry/.rvm/bin"; export PATH;
+# PATH="$HOME/.opam/system/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/go/bin:/usr/local/opt/go/libexec/bin:$HOME/.rvm/bin"; export PATH;
 
 # OPAM configuration
-. /Users/jerry/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # league alias
 alias league="ping 104.160.131.3"
@@ -132,7 +135,7 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:/Users/jerry/protoc-3.5.1-osx-x86_64/bin
+export PATH=$PATH:$HOME/protoc-3.5.1-osx-x86_64/bin
 
 # binds hex 0x18 0x7f with deleting everything to the left of the cursor
 bindkey "^X\\x7f" backward-kill-line
@@ -142,7 +145,7 @@ PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 
 # racket
-export PATH=$PATH:/Users/jerry/racket_v6_11/bin
+export PATH=$PATH:$HOME/racket_v6_11/bin
 
 # macports
 export PATH=$PATH:/opt/local/bin
