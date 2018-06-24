@@ -33,6 +33,7 @@ Plugin 'zenbro/mirror.vim' " easily edit remote files
 Plugin 'wlangstroth/vim-racket' " racket
 Plugin 'xuhdev/vim-latex-live-preview' " live preview latex files
 Plugin 'easymotion/vim-easymotion' " faster navigation
+Plugin 'christoomey/vim-tmux-navigator' " easy navigation b/w vim and tmux
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

@@ -126,13 +126,14 @@ alias c=clear
 alias s=spotify
 alias f=fg
 alias git=hub
+eval $(thefuck --alias)
 
 # git
 alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"
 
 # Golang
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/protoc-3.5.1-osx-x86_64/bin
