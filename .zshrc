@@ -85,6 +85,7 @@ ssh-add ~/.ssh/id_rsa
 
 # tmux
 export TERM=xterm-256color
+alias tmux='tmux; powerline-daemon -q; tmux source "/Users/jerryliu/Library/Python/3.6/lib/python/site-packages/powerline/bindings/tmux/powerline.conf"'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -126,7 +127,7 @@ alias c=clear
 alias s=spotify
 alias f=fg
 alias git=hub
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # git
 alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"
@@ -144,6 +145,9 @@ bindkey "^X\\x7f" backward-kill-line
 # gnu utils
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
+
+# powerline
+PATH="$PATH:$HOME/Library/Python/3.6/bin/"
 
 # racket
 export PATH=$PATH:$HOME/racket_v6_11/bin
