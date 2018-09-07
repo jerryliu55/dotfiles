@@ -135,11 +135,18 @@ if [[ -f /opt/dev/dev.sh  ]] && [[ $- == *i*  ]]; then
   source /opt/dev/dev.sh
 fi
 
+# utility env vars
+export JEKYLL_EDITOR=vim
+export VISUAL=vim # use vim as default editor for everything
+export EDITOR="$VISUAL"
+
 # utility aliases
 alias c=clear
 alias s=spotify
 alias f=fg
 alias git=hub
+alias cat="bat --style=plain"
+alias bexec="bundle exec"
 # eval $(thefuck --alias)
 
 # git
@@ -147,7 +154,7 @@ alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"
 
 # Golang
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/go || true
+export GOROOT=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/protoc-3.5.1-osx-x86_64/bin
