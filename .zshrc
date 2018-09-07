@@ -98,7 +98,7 @@ ssh-add ~/.ssh/id_rsa
 
 # tmux
 export TERM=xterm-256color
-alias tmux-pl='powerline-daemon -q; tmux source "/Users/jerryliu/Library/Python/3.6/lib/python/site-packages/powerline/bindings/tmux/powerline.conf"'
+alias tmux-pl='powerline-daemon -q; tmux source "$HOME/Library/Python/3.6/lib/python/site-packages/powerline/bindings/tmux/powerline.conf"'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
