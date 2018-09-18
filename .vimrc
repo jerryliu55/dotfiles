@@ -34,6 +34,7 @@ Plugin 'wlangstroth/vim-racket' " racket
 Plugin 'xuhdev/vim-latex-live-preview' " live preview latex files
 Plugin 'easymotion/vim-easymotion' " faster navigation
 Plugin 'christoomey/vim-tmux-navigator' " easy navigation b/w vim and tmux
+Plugin 'vim-scripts/ucpp-vim-syntax' " uC++ syntax highlighting
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -120,6 +121,12 @@ set softtabstop=2 " number of spaces when press <TAB> and number of spaces delet
 set expandtab " tabs are spaces
 set shiftwidth=2 " columns inserted for reindent operations (<< and >>)
 set autoindent " copy indentation from pervious line when starting a new line
+
+autocmd FileType py setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cc setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType c setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType ucpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI config
