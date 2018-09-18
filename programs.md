@@ -2,3 +2,5 @@
 
 * https://github.com/so-fancy/diff-so-fancy
 * https://github.com/sharkdp/bat
+
+* make sure to `:PluginInstall` in vim
