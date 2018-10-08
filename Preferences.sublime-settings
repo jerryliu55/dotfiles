@@ -1,0 +1,16 @@
+{
+	// editor
+	"font_face": "Iosevka",
+	"font_size": 13,
+	"margin": 0,
+	"rulers": [80, 120],
+	"translate_tabs_to_spaces": true,
+    "word_wrap": true,
+    "indent_guide_options": ["draw_active"],
+    "ensure_newline_at_eof_on_save": true,
+    "shift_tab_unindent": true,
+
+    // ui
+    "highlight_modified_tabs": true,
+    "show_tab_close_buttons": false,
+}
