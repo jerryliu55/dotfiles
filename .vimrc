@@ -12,8 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " My plugins
-Plugin 'vim-airline/vim-airline' " status bar
-Plugin 'vim-airline/vim-airline-themes' " airline themes
+Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdcommenter' " comment lines easily
 Plugin 'scrooloose/nerdtree' " fs explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin' " git status flags for nerd tree
@@ -99,20 +98,11 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme base16-materia
-
-" these 3 lines are necessary for 256 colours to work in tmux
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
-
-
-" base16
-
-"if filereadable(expand("~/.vimrc_background"))
-  "let base16colorspace=256
-  "source ~/.vimrc_background
-"endif
+" get colorscheme from https://github.com/chriskempson/base16-shell
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs and spacing
@@ -132,7 +122,6 @@ autocmd FileType ucpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
 " UI config
 set number " show line numbers
 set showcmd " show last command entered in bottom left
-set cursorline " hightlight current line
 set relativenumber " relative line numbers
 set mouse=a " mouse controls
 
@@ -140,6 +129,8 @@ filetype indent on " load filetype-specific indent files
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to - faster macros
 set showmatch " highlight matching [{()}]
+set colorcolumn=80,120 " show column guides
+set noshowmode " remove --INSERT-- since it's on status line
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
@@ -246,6 +237,32 @@ nnoremap <leader>mps :MirrorPush<CR><CR><CR>
 
 autocmd Filetype tex setl updatetime=1 " update every second?
 let g:livepreview_previewer = 'open -a Preview'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim lightline
+
+" this section
+" * trims file format and encoding info on narrow windows
+" * adds git branch to status line
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
