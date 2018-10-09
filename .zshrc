@@ -92,6 +92,12 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 ssh-add ~/.ssh/id_rsa
@@ -147,6 +153,8 @@ alias f=fg
 alias git=hub
 alias cat="bat --style=plain --theme=DarkNeon"
 alias bexec="bundle exec"
+alias pt=ptpython
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 # eval $(thefuck --alias)
 
 # git
