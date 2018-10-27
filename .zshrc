@@ -119,20 +119,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/scripts" # Add RVM to PATH for scripting
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# ocaml
-eval CAML_LD_LIBRARY_PATH="$HOME/.opam/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"; export CAML_LD_LIBRARY_PATH;
-OPAMUTF8MSGS="1"; export OPAMUTF8MSGS;
-MANPATH="$HOME/.opam/system/man:"; export MANPATH;
-PERL5LIB="$HOME/.opam/system/lib/perl5"; export PERL5LIB;
-OCAML_TOPLEVEL_PATH="$HOME/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
-
-# opam path
-export PATH="$PATH:$HOME/.opam/system/bin" # Add RVM to PATH for scripting
-# PATH="$HOME/.opam/system/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/go/bin:/usr/local/opt/go/libexec/bin:$HOME/.rvm/bin"; export PATH;
-
-# OPAM configuration
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 # league alias
 alias league="ping 104.160.131.3"
 
@@ -182,3 +168,6 @@ export PATH=$PATH:$HOME/racket_v6_11/bin
 
 # macports
 export PATH=$PATH:/opt/local/bin
+
+# opam configuration
+test -r /Users/jerryliu/.opam/opam-init/init.zsh && . /Users/jerryliu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

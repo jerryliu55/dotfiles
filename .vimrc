@@ -34,6 +34,9 @@ Plugin 'xuhdev/vim-latex-live-preview' " live preview latex files
 Plugin 'easymotion/vim-easymotion' " faster navigation
 Plugin 'christoomey/vim-tmux-navigator' " easy navigation b/w vim and tmux
 Plugin 'vim-scripts/ucpp-vim-syntax' " uC++ syntax highlighting
+Plugin 'dhruvasagar/vim-table-mode' " easily make tables in md
+Plugin 'ferrine/md-img-paste.vim' " paste image to directory and add to markdown
+Plugin 'EinfachToll/DidYouMean' " description in github page https://github.com/EinfachToll/DidYouMean
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -263,6 +266,17 @@ endfunction
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" dhruvasagar/vim-table-mode
+let g:table_mode_corner='|'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" md-img-paste
+
+autocmd FileType markdown nmap <silent> <leader>pi :call mdip#MarkdownClipboardImage()<CR>
+let g:mdip_imgdir = 'images'
+" let g:mdip_imgname = 'image' " default
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
