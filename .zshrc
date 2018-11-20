@@ -53,7 +53,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -141,7 +141,13 @@ alias cat="bat --style=plain --theme=DarkNeon"
 alias bexec="bundle exec"
 alias pt=ptpython
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-# eval $(thefuck --alias)
+
+# taskwarrior setup
+alias t=task
+alias in='task add +in'
+alias next='task +next limit:10'
+alias daydone='timew summary :week && t calendar'
+export PS1='[$(task +in +PENDING count)] '$PS1
 
 # git
 alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"

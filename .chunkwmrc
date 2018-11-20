@@ -43,14 +43,14 @@ chunkc core::hotload 0
 #
 
 chunkc set custom_bar_enabled            0
-chunkc set custom_bar_all_monitors       0
-chunkc set custom_bar_offset_top         22
+chunkc set custom_bar_all_monitors       1
+chunkc set custom_bar_offset_top         12
 chunkc set custom_bar_offset_bottom      0
 chunkc set custom_bar_offset_left        0
 chunkc set custom_bar_offset_right       0
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     10
+chunkc set global_desktop_offset_top     22
 chunkc set global_desktop_offset_bottom  10
 chunkc set global_desktop_offset_left    10
 chunkc set global_desktop_offset_right   10
@@ -108,9 +108,9 @@ chunkc set window_use_cgs_move           0
 # chunkc set focused_border_color          0xff0f6288 # default blue
 # chunkc set focused_border_color          0x88b46b4b
 # chunkc set focused_border_color          0xff446d3e
-chunkc set focused_border_color          0xffffffff
-chunkc set focused_border_width          2
-chunkc set focused_border_radius         0
+chunkc set focused_border_color          0xffdddddd
+chunkc set focused_border_width          6
+chunkc set focused_border_radius         1
 chunkc set focused_border_skip_floating  0
 chunkc set focused_border_skip_monocle   0
 
@@ -133,9 +133,10 @@ chunkc core::load ffm.so
 # NOTE: sample rules for the tiling plugin
 #
 
-chunkc tiling::rule --owner Finder --state float --grid-layout 4:4:1:1:2:2 &
-chunkc tiling::rule --owner \"App Store\" --state float &
+chunkc tiling::rule --owner Finder --state float --grid-layout 8:8:1:1:6:6 &
+chunkc tiling::rule --owner \"App Store\" --state float --grid-layout 8:8:1:1:6:6 &
 chunkc tiling::rule --owner Emacs --except "^$" --state tile &
-chunkc tiling::rule --owner Spotify --desktop 5 --follow-desktop
-chunkc tiling::rule --owner \"Activity Monitor\" --state float --grid-layout 4:4:1:1:2:2 &
-chunkc tiling::rule --owner \"1Password 7\" --state float --grid-layout 4:4:1:1:2:2 &
+chunkc tiling::rule --owner Spotify --desktop 6 --follow-desktop
+chunkc tiling::rule --owner \"Activity Monitor\" --state float --grid-layout 8:8:1:1:6:6 &
+chunkc tiling::rule --owner \"1Password 7\" --state float --grid-layout 8:8:1:1:6:6 &
+chunkc tiling::rule --owner WeChat --state float --grid-layout 8:8:1:1:6:6 &
