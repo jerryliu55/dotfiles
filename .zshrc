@@ -145,7 +145,8 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 # taskwarrior setup
 alias t=task
 alias in='task add +in'
-alias next='task +next limit:10'
+alias next='task +next'
+alias rdy='task ready'
 alias daydone='timew summary :week && t calendar'
 export PS1='[$(task +in +PENDING count)] '$PS1
 

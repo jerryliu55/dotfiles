@@ -144,6 +144,10 @@ set ignorecase " case insensitive
 " to turn off search highlighting
 nnoremap <leader>y :nohlsearch<CR> 
 
+" search match on centre of screen
+nnoremap n nzz
+nnoremap N Nzz
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
 " TODO: figure out folding...
@@ -291,6 +295,8 @@ set wildmode=list:longest,full
 inoremap jj <Esc>
 
 set shortmess=a " short messages to avoid hit-enter prompts
+
+set undodir=~/.vim/undodir " undodir for cross-session undo/redo stacks
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OCAML
