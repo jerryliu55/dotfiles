@@ -132,17 +132,17 @@ export JEKYLL_EDITOR=vim
 export VISUAL=vim # use vim as default editor for everything
 export EDITOR="$VISUAL"
 
-# utility aliases
+# utility aliases ==============================================================
 alias c=clear
 alias s=spotify
 alias f=fg
-alias git=hub
 alias cat="bat --style=plain --theme=DarkNeon"
 alias bexec="bundle exec"
 alias pt=ptpython
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias hab=habitica
 
-# taskwarrior setup
+# taskwarrior setup ============================================================
 alias t=task
 alias in='task add +in'
 alias next='task +next'
@@ -150,7 +150,19 @@ alias rdy='task ready'
 alias daydone='timew summary :week && t calendar'
 export PS1='[$(task +in +PENDING count)] '$PS1
 
-# git
+# timewarrior setup ============================================================
+
+# these aliases are to compensate for the fact that `timew month` only shows the current month (ie. only december),
+  # not the previous 30 days
+
+# -v-1m 1 month ago
+# -v-1w 1 week ago
+# -v+1d next day (or else current day isn't included)
+alias timew30='timew month $(date -v-1m +"%Y-%m-%d") to $(date -v+1d +"%Y-%m-%d")'
+alias timew7='timew month $(date -v-1w +"%Y-%m-%d") to $(date -v+1d +"%Y-%m-%d")'
+
+# git ==========================================================================
+alias git=hub
 alias gpocb="git push --set-upstream origin \$(git rev-parse --abbrev-ref HEAD)"
 
 # Golang
@@ -165,6 +177,7 @@ bindkey "^X\\x7f" backward-kill-line
 
 # gnu utils
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+CDPATH=.:~/projects
 MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 
 # powerline

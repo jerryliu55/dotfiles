@@ -219,6 +219,10 @@ alt - x : chunkc tiling::desktop --mirror horizontal
 # toggle desktop offset
 alt - a : chunkc tiling::desktop --toggle offset
 
+# desktop padding inc/dec
+shift + ctrl - up : chunkc tiling::desktop --padding inc
+shift + ctrl - down : chunkc tiling::desktop --padding dec
+
 # toggle window fullscreen
 alt - f : chunkc tiling::window --toggle fullscreen
 
